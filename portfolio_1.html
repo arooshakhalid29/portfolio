@@ -599,7 +599,7 @@
 
   // Contact form -> Google Apps Script
   // Replace SCRIPT_URL below with your deployed Google Apps Script Web App URL.
-  const SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqIBgmFhvTMEHAruuz_of6JW4wd2IfPyK18Tn_2XM-bmAe7H05D-EPmAWlThyGBDpL/exec";
 
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
@@ -621,8 +621,9 @@
 
     fetch(SCRIPT_URL, {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "text/plain;charset=utf-8" }
     })
       .then(() => {
         status.textContent = "Message sent — thank you! I'll get back to you soon.";
